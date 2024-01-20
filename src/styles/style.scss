@@ -10,3 +10,12 @@ body {
 *:before {
   box-sizing: border-box;
 }
+
+.main {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  max-width: 1054px;
+  margin: 0 auto;
+  margin-top: 20px;
+}

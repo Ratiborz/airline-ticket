@@ -1,0 +1,58 @@
+.card {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  max-width: 727px;
+  width: 100%;
+  border-radius: 10px;
+  background: var(--colors-light-lavender, #e8ebf2);
+  padding: 32px 43px 25px 39px;
+}
+
+.card__price {
+  color: var(--colors-purple, #4e148c);
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.card__direction {
+  color: var(--colors-lavender, #858ae3);
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 9px;
+}
+
+.card__time {
+  color: var(--colors-purple, #4e148c);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.card__way {
+  color: var(--colors-lavender, #858ae3);
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 9px;
+}
+
+.card__countTime {
+  color: var(--colors-purple, #4e148c);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.card__transfers {
+  color: var(--colors-lavender, #858ae3);
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 9px;
+  margin-top: 26px;
+}
+
+.card__countTransfers {
+  color: var(--colors-purple, #4e148c);
+  font-size: 16px;
+  font-weight: 500;
+}

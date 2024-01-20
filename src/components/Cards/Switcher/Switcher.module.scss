@@ -1,0 +1,29 @@
+.switcher {
+  display: flex;
+  align-items: center;
+  margin-bottom: 29px;
+}
+
+.switcher__btn {
+  color: var(--colors-purple, #4e148c);
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0;
+  padding: 18px 56px 18px 52px;
+  border: 1px solid var(--colors-purple, #4e148c);
+  background: var(--colors-light-lavender, #e8ebf2);
+  transition: 0.3s;
+  &:hover {
+    background: var(--colors-purple, #4e148c);
+    color: #fff;
+    transition: 0.3s;
+  }
+  &:first-of-type {
+    border-radius: 10px 0 0 10px;
+    padding: 18px 56px 18px 50px;
+  }
+  &:last-of-type {
+    border-radius: 0 10px 10px 0;
+    padding: 18px 32px 18px 39px;
+  }
+}

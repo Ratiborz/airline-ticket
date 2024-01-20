@@ -1,0 +1,20 @@
+.company {
+  max-width: 272px;
+  width: 100%;
+  border-radius: 10px;
+  background: var(--colors-light-lavender, #e8ebf2);
+  padding: 19px 0 29px 19px;
+  margin-top: 47px;
+}
+
+.company__h3 {
+  color: var(--colors-purple, #4e148c);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.company__li {
+  color: var(--colors-lavender, #858ae3);
+  font-size: 16px;
+  font-weight: 500;
+}
