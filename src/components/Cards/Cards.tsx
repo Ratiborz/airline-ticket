@@ -1,7 +1,6 @@
 import { Switcher } from './Switcher/Switcher';
 import s from './Cards.module.scss';
-import { GlobalImage } from '../../assets/images/GlobalImage';
-import { CardsSvg } from '../../assets/images/CardsSvg';
+import GlobalImage from '../../assets/images/GlobalImage';
 
 export const Cards = () => {
   return (
@@ -18,7 +17,7 @@ export const Cards = () => {
           <span className={s.card__countTime}>4 ч 30 мин</span>
         </div>
         <div>
-          <CardsSvg id="pobeda" />
+          <GlobalImage id="pobeda" />
           <div className={s.card__transfers}>Пересадки</div>
           <span className={s.card__countTransfers}>1 пересадка</span>
         </div>

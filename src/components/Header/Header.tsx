@@ -1,4 +1,4 @@
-import { GlobalImage } from '../../assets/images/GlobalImage';
+import GlobalImage from '../../assets/images/GlobalImage';
 import s from './Header.module.scss';
 
 export const Header = () => {
