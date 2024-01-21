@@ -2,19 +2,60 @@
   max-width: 272px;
   width: 100%;
   border-radius: 10px;
-  background: var(--colors-light-lavender, #e8ebf2);
+  background: #e8ebf2;
   padding: 19px 0 29px 19px;
-  margin-top: 47px;
 }
 
 .company__h3 {
-  color: var(--colors-purple, #4e148c);
+  color: #4e148c;
   font-size: 20px;
   font-weight: 700;
 }
 
-.company__li {
-  color: var(--colors-lavender, #858ae3);
+.wrapper__radio {
+  display: flex;
+  flex-direction: column;
+}
+
+.radio_position {
+  display: flex;
+  align-items: center;
+  color: #858ae3;
   font-size: 16px;
   font-weight: 500;
+  margin-bottom: 20px;
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+input[type='radio'] {
+  display: none;
+}
+
+.custom_radio {
+  position: relative;
+  display: inline-block;
+  width: 21px;
+  height: 21px;
+  border: 1px solid #4e148c;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 3px;
+  margin-right: 20px;
+}
+
+.custom_radio::before {
+  content: '';
+  position: absolute;
+  top: 3px; /* отступ от границы*/
+  left: 3px; /* отступ от границы*/
+  width: 14px; /* ширина внутреннего кружка */
+  height: 14px; /* высота внутреннего кружка */
+  border-radius: 50%; /* круглый внутренний кружок */
+  // background-color: #4e148c;
+}
+
+input[type='radio']:checked + .custom_radio::before {
+  background-color: #4e148c;
 }

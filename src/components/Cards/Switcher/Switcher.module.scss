@@ -1,7 +1,7 @@
 .switcher {
   display: flex;
   align-items: center;
-  margin-bottom: 29px;
+  margin-bottom: 24px;
 }
 
 .switcher__btn {
@@ -13,6 +13,7 @@
   border: 1px solid var(--colors-purple, #4e148c);
   background: var(--colors-light-lavender, #e8ebf2);
   transition: 0.3s;
+  cursor: pointer;
   &:hover {
     background: var(--colors-purple, #4e148c);
     color: #fff;

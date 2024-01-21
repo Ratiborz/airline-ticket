@@ -1,0 +1,31 @@
+{
+  "flights": [
+    {
+      "id": 0,
+      "price": "12 680",
+      "currency": "RUB",
+      "gap": "12:00 - 16:30",
+      "countTime": "4 ч 30 мин",
+      "company": "pobeda",
+      "stops": "1 пересадка"
+    },
+    {
+      "id": 1,
+      "price": "21 500",
+      "currency": "RUB",
+      "gap": "14:00 - 16:00",
+      "countTime": "2 ч 0 мин",
+      "company": "red-wings",
+      "stops": "Без пересадок"
+    },
+    {
+      "id": 2,
+      "price": "23 995",
+      "currency": "RUB",
+      "gap": "04:50 - 13:30",
+      "countTime": "8 ч 40 мин",
+      "company": "s7-airlines",
+      "stops": "2 пересадка"
+    }
+  ]
+}

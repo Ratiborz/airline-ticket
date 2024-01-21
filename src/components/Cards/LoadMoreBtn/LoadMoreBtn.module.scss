@@ -1,0 +1,19 @@
+.load_more {
+  max-width: 727px;
+  width: 100%;
+  height: 62px;
+  border-radius: 10px;
+  background: var(--colors-purple, #4e148c);
+  color: var(--colors-white, #f7f9f7);
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 70px;
+  border: none;
+  transition: 0.3s;
+  cursor: pointer;
+  &:hover {
+    background: var(--colors-light-lavender, #e8ebf2);
+    color: var(--colors-purple, #4e148c);
+    transition: 0.3s;
+  }
+}

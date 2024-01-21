@@ -7,6 +7,10 @@
   border-radius: 10px;
   background: var(--colors-light-lavender, #e8ebf2);
   padding: 32px 43px 25px 39px;
+  margin-bottom: 47px;
+  &:last-of-type {
+    margin-bottom: 70px;
+  }
 }
 
 .card__price {
