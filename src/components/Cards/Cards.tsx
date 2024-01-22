@@ -19,7 +19,6 @@ interface FlightsResponse {
 }
 
 export const Cards = () => {
-  console.log(race);
   return (
     <div className={s.wrapper__main}>
       <Switcher />

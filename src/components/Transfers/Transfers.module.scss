@@ -2,19 +2,67 @@
   max-width: 272px;
   width: 100%;
   border-radius: 10px;
-  background: var(--colors-light-lavender, #e8ebf2);
+  background: #e8ebf2;
   padding: 19px 19px 49px 19px;
   margin-bottom: 47px;
 }
 
 .transfers__h3 {
-  color: var(--colors-purple, #4e148c);
+  color: #4e148c;
   font-size: 20px;
   font-weight: 700;
+  margin: 0;
+  margin-bottom: 27px;
+  white-space: nowrap;
+}
+
+.wrapper__transfers {
+  display: flex;
+  flex-direction: column;
+  margin-left: 23px;
+}
+
+input[type='checkbox'] {
+  display: none;
+}
+
+.custom_checkbox {
+  position: relative;
+  display: inline-block;
+  width: 21px;
+  height: 21px;
+  border: 1px solid #4e148c;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 19px;
+}
+
+.custom_checkbox:after {
+  content: '\2713';
+  color: #4e148c;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1;
+  opacity: 0;
+  pointer-events: none;
+}
+
+input[type='checkbox']:checked + .custom_checkbox:after {
+  opacity: 1;
 }
 
 .transfers__li {
-  color: var(--colors-lavender, #858ae3);
+  display: flex;
+  align-items: center;
+  color: #858ae3;
   font-size: 16px;
   font-weight: 500;
+  margin-bottom: 19px;
+  &:last-of-type {
+    margin-bottom: 0;
+  }
 }
