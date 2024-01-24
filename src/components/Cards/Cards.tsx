@@ -1,7 +1,7 @@
 import { Switcher } from './Switcher/Switcher';
 import s from './Cards.module.scss';
 import GlobalImage from '../../assets/images/GlobalImage';
-import race from '../../model/mock.json';
+import race from '../../../db.json';
 import LoadMoreBtn from './LoadMoreBtn/LoadMoreBtn';
 
 interface Flight {
