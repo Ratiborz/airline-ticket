@@ -14,6 +14,7 @@ export interface Flight {
 interface FlightsState {
   flights: Flight[];
   activeSort: string;
+  selectedTransfers: Flight[];
 }
 
 const initialState: FlightsState = flights;
@@ -23,9 +24,15 @@ export const flightSlice = createSlice({
   initialState,
   reducers: {
     sortByPrice: (state, action) => {
-      state.flights.sort((a, b) => {
-        return parseFloat(a.price.replace(/\s+/g, '')) - parseFloat(b.price.replace(/\s+/g, ''));
-      });
+      if (state.selectedTransfers.length > 0) {
+        state.selectedTransfers.sort((a, b) => {
+          return parseFloat(a.price.replace(/\s+/g, '')) - parseFloat(b.price.replace(/\s+/g, ''));
+        });
+      } else {
+        state.flights.sort((a, b) => {
+          return parseFloat(a.price.replace(/\s+/g, '')) - parseFloat(b.price.replace(/\s+/g, ''));
+        });
+      }
       state.activeSort = action.payload;
     },
     sortByTime: (state, action) => {
@@ -42,11 +49,19 @@ export const flightSlice = createSlice({
         return totalMinutes;
       };
 
-      state.flights.sort((a, b) => {
-        const timeA = calculateMinutes(a.countTime);
-        const timeB = calculateMinutes(b.countTime);
-        return timeA - timeB;
-      });
+      if (state.selectedTransfers.length > 0) {
+        state.selectedTransfers.sort((a, b) => {
+          const timeA = calculateMinutes(a.countTime);
+          const timeB = calculateMinutes(b.countTime);
+          return timeA - timeB;
+        });
+      } else {
+        state.flights.sort((a, b) => {
+          const timeA = calculateMinutes(a.countTime);
+          const timeB = calculateMinutes(b.countTime);
+          return timeA - timeB;
+        });
+      }
       state.activeSort = action.payload;
     },
     sortByOptimal: (state, action) => {
@@ -58,13 +73,42 @@ export const flightSlice = createSlice({
         return priceValue / (durationValue + stopsValue);
       };
 
-      state.flights.sort((a, b) => {
-        const optimalityA = calculateOptimality(a);
-        const optimalityB = calculateOptimality(b);
+      if (state.selectedTransfers.length > 0) {
+        state.selectedTransfers.sort((a, b) => {
+          const optimalityA = calculateOptimality(a);
+          const optimalityB = calculateOptimality(b);
 
-        return optimalityB - optimalityA; // Сортировка от самого оптимального до самого неоптимального
-      });
+          return optimalityB - optimalityA;
+        });
+      } else {
+        state.flights.sort((a, b) => {
+          const optimalityA = calculateOptimality(a);
+          const optimalityB = calculateOptimality(b);
+
+          return optimalityB - optimalityA; // Сортировка от самого оптимального до самого неоптимального
+        });
+      }
       state.activeSort = action.payload;
+    },
+    sortByStops: (state, action) => {
+      const stopsValue = action.payload;
+
+      // Фильтрация рейсов в зависимости от количества пересадок
+      const filteredFlights = state.flights.filter((flight) => {
+        const stops = flight.stops === 'Без пересадок' ? 0 : parseInt(flight.stops);
+        // Извлечение количества пересадок из строки stops
+        return stops === stopsValue;
+      });
+
+      // Проверка, есть ли отфильтрованные рейсы уже в массиве selectedTransfers
+      filteredFlights.forEach((flight) => {
+        const index = state.selectedTransfers.findIndex((selectedFlight) => selectedFlight.id === flight.id);
+        if (index === -1) {
+          state.selectedTransfers.push(flight); // Добавление рейса в массив selectedTransfers, если его там еще нет
+        } else {
+          state.selectedTransfers.splice(index, 1); // Удаление рейса из массива selectedTransfers, если он уже там есть
+        }
+      });
     },
   },
 });

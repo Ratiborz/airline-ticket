@@ -3,18 +3,17 @@ import s from './Cards.module.scss';
 import GlobalImage from '../../assets/images/GlobalImage';
 import LoadMoreBtn from './LoadMoreBtn/LoadMoreBtn';
 import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
 import { Flight } from '../../store/reducers/CardsSlice';
 
 export const Cards = () => {
-  const dispatch = useDispatch();
-  const state = useSelector((state) => state.flight.flights);
+  const flights = useSelector((state) => state.flight.flights);
+  const transfers = useSelector((state) => state.flight.selectedTransfers);
 
   return (
     <div className={s.wrapper__main}>
       <Switcher />
 
-      {state.map((flight: Flight) => (
+      {(transfers.length > 0 ? transfers : flights).map((flight: Flight) => (
         <div key={flight.id} className={s.card}>
           <div>
             <div className={s.card__price}>{flight.price} Р</div>
