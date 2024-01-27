@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom/client';
 import App from './App.tsx';
 import './styles/style.scss';
 import { Provider } from 'react-redux';
-import { setupStore } from './store/store.ts';
+import { store } from './store/store.ts';
 
-const store = setupStore();
+// const store = setupStore();
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

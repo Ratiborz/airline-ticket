@@ -1,29 +1,20 @@
 import { Switcher } from './Switcher/Switcher';
 import s from './Cards.module.scss';
 import GlobalImage from '../../assets/images/GlobalImage';
-import race from '../../../db.json';
 import LoadMoreBtn from './LoadMoreBtn/LoadMoreBtn';
-
-interface Flight {
-  id: number;
-  price: string;
-  currency: string;
-  gap: string;
-  countTime: string;
-  company: string;
-  stops: string;
-}
-
-interface FlightsResponse {
-  flights: Flight[];
-}
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { Flight } from '../../store/reducers/CardsSlice';
 
 export const Cards = () => {
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state.flight.flights);
+
   return (
     <div className={s.wrapper__main}>
       <Switcher />
 
-      {race.flights.map((flight: Flight) => (
+      {state.map((flight: Flight) => (
         <div key={flight.id} className={s.card}>
           <div>
             <div className={s.card__price}>{flight.price} Р</div>

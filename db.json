@@ -27,5 +27,6 @@
       "company": "s7-airlines",
       "stops": "2 пересадка"
     }
-  ]
+  ],
+  "activeSort": ""
 }
