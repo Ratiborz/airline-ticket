@@ -29,5 +29,6 @@
     }
   ],
   "activeSort": "",
-  "selectedTransfers": []
+  "selectedTransfers": [],
+  "selectedCompany": []
 }
