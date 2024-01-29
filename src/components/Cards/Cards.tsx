@@ -2,14 +2,14 @@ import { Switcher } from './Switcher/Switcher';
 import s from './Cards.module.scss';
 import GlobalImage from '../../assets/images/GlobalImage';
 import LoadMoreBtn from './LoadMoreBtn/LoadMoreBtn';
-import { useSelector } from 'react-redux';
-import { Flight, FlightsState } from '../../store/reducers/CardsSlice';
+import { Flight } from '../../store/reducers/CardsSlice';
 import { useEffect, useState } from 'react';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
 
 export const Cards = () => {
-  const flights = useSelector((state: FlightsState) => state.flight.flights);
-  const transfers = useSelector((state) => state.flight.selectedTransfers);
-  const company = useSelector((state) => state.flight.selectedCompany);
+  const flights = useTypedSelector((state) => state.flight.flights);
+  const transfers = useTypedSelector((state) => state.flight.selectedTransfers);
+  const company = useTypedSelector((state) => state.flight.selectedCompany);
   const [lastUpdatedArray, setLastUpdatedArray] = useState('flights');
 
   useEffect(() => {

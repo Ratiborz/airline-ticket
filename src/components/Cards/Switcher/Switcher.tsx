@@ -1,11 +1,11 @@
 import { useDispatch } from 'react-redux';
 import { actions } from '../../../store/reducers/CardsSlice';
 import s from './Switcher.module.scss';
-import { useSelector } from 'react-redux';
+import { useTypedSelector } from '../../../hooks/useTypedSelector';
 
 export const Switcher = () => {
   const dispatch = useDispatch();
-  const activeSort = useSelector((state) => state.flight.activeSort);
+  const activeSort = useTypedSelector((state) => state.flight.activeSort);
 
   return (
     <>

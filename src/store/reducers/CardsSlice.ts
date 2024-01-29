@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import flights from '../../../db.json';
 
 export interface Flight {
@@ -24,7 +24,7 @@ export const flightSlice = createSlice({
   name: 'flight',
   initialState,
   reducers: {
-    sortByPrice: (state, action) => {
+    sortByPrice: (state, action: PayloadAction<string>) => {
       if (state.selectedTransfers.length > 0) {
         state.selectedTransfers.sort((a, b) => {
           return parseFloat(a.price.replace(/\s+/g, '')) - parseFloat(b.price.replace(/\s+/g, ''));
@@ -41,7 +41,7 @@ export const flightSlice = createSlice({
       }
       state.activeSort = action.payload;
     },
-    sortByTime: (state, action) => {
+    sortByTime: (state, action: PayloadAction<string>) => {
       const calculateMinutes = (time: string): number => {
         const parts = time.split(' ');
         let totalMinutes = 0;
@@ -77,7 +77,7 @@ export const flightSlice = createSlice({
       }
       state.activeSort = action.payload;
     },
-    sortByOptimal: (state, action) => {
+    sortByOptimal: (state, action: PayloadAction<string>) => {
       const calculateOptimality = (flight: Flight) => {
         const stopsValue = flight.stops === 'Без пересадок' ? 0 : parseInt((flight.stops.match(/\d+/) || ['0'])[0]);
         const durationValue = parseInt((flight.countTime.match(/\d/g) || ['0']).join(''));
@@ -111,7 +111,7 @@ export const flightSlice = createSlice({
       }
       state.activeSort = action.payload;
     },
-    sortByStops: (state, action) => {
+    sortByStops: (state, action: PayloadAction<number>) => {
       const stopsValue = action.payload;
 
       // Фильтрация рейсов в зависимости от количества пересадок
@@ -131,7 +131,7 @@ export const flightSlice = createSlice({
         }
       });
     },
-    sortByCompany: (state, action) => {
+    sortByCompany: (state, action: PayloadAction<string>) => {
       const companyName = action.payload;
 
       const filteredFlights = state.flights.filter((flight) => flight.company === companyName);
